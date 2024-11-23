@@ -2,7 +2,9 @@ package com.lostandfound.controller;
 
 import com.lostandfound.model.User;
 import com.lostandfound.repository.UserRepository;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -17,10 +19,10 @@ public class AuthController {
     private PasswordEncoder passwordEncoder;
 
     @PostMapping("/register")
-    public String registerUser(@RequestBody User user) {
-        // Encode the password before saving
+    public ResponseEntity<String> registerUser(@Valid @RequestBody User user) {
         user.setPassword(passwordEncoder.encode(user.getPassword()));
         userRepository.save(user);
-        return "User registered successfully!";
+        return ResponseEntity.ok("User registered successfully!");
     }
+
 }

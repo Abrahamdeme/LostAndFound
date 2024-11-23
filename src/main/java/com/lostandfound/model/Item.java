@@ -3,12 +3,12 @@ package com.lostandfound.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
-import java.util.Date;
+import java.time.LocalDate;
 
 @Entity
-@Inheritance(strategy = InheritanceType.JOINED)
 @Data
 public class Item {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -16,16 +16,25 @@ public class Item {
     @Column(nullable = false)
     private String title;
 
+    @Column(nullable = false)
     private String description;
 
     @Enumerated(EnumType.STRING)
-    private Status status;
+    @Column(nullable = false)
+    private Status status; // LOST or FOUND
 
     @Column(nullable = false)
-    private Long userId;
+    private LocalDate dateReported;
 
-    @Temporal(TemporalType.DATE)
-    private Date dateReported = new Date();
+    @Column(nullable = true)
+    private String locationFound;  // Location where the item was found
+
+    @Column(nullable = true)
+    private String locationLost ; // Location where the item was lost
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private User user; // The user who reported the item
 
     public enum Status {
         LOST, FOUND
