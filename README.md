@@ -6,7 +6,9 @@ Users can report lost items, mark them as found, and update or delete their repo
 The project implements secure user authentication and authorization with Spring Security and JWT tokens, ensuring that only authorized users can perform certain operations. 
 
 # Class Diagram
--
+![Classe UML](https://github.com/user-attachments/assets/cb2c1051-4601-4964-90e6-406c0eec54bb)
+
+
 
 # Setup
 Follow the steps below to set up the project on intellij idea
