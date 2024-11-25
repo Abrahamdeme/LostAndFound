@@ -39,7 +39,9 @@ Postmap
 ## AuthController
 - POST /api/auth/register
 Register a new user.
-- Payload: { "username": "user1", "password": "password123" }
+- Payload: { "username": "user1", "password": "password123", "ROLE": "ADMIN" }
+  OR
+- { "username": "user1", "password": "password123", "ROLE": "USER" }
 
 - POST /api/auth/login
 Authenticate a user and get a JWT token.
