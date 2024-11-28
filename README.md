@@ -26,14 +26,14 @@ Run the Application
 The application will run on http://localhost:8080.
 
 # Technologies Used
-Java 
-Spring Boot 
-Spring Security with JWT
-Hibernate 
-MySQL
-Maven (Build Tool)
-Lombok (Code Simplification)
-Postmap
+-Java 
+-Spring Boot 
+-Spring Security with JWT
+-Hibernate 
+-MySQL
+-Maven (Build Tool)
+-Lombok (Code Simplification)
+-Postmap
 
 # Controllers and Routes Structure
 ## AuthController
